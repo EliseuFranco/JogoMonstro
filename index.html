@@ -1,0 +1,87 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<link rel="stylesheet" href="style.css" />
+<!--
+Feito por Eliseu Samulolo
+01/03/2025
+-->
+<section id="app">
+  <div class="panel">
+    <!--Player Content-->
+    <div class="score">
+      <p>jogador</p>
+      <div class="barra">
+        <div
+          class="life"
+          :class="{danger: player < 25 }"
+          :style="{'width': player + '%'}"
+        ></div>
+      </div>
+      <p>{{player}}%</p>
+    </div>
+
+    <!--Monster Content-->
+    <div class="score">
+      <p>Monstro</p>
+      <div class="barra">
+        <div
+          class="life"
+          :class="{danger: monster < 25}"
+          :style="{'width':monster + '%'}"
+        ></div>
+      </div>
+      <p>{{monster}}%</p>
+    </div>
+  </div>
+  <!--Logs content-->
+
+  <div class="panel" v-show="hasWinner">
+    <template v-if="player <= 0">
+      <p id="lose">Você perdeu 😔</p>
+    </template>
+    <template v-else> <p id="win">Você ganhou 🎉</p> </template>
+  </div>
+
+  <!--Buttons content-->
+  <div class="panel">
+    <div class="buttons">
+      <template v-if="!start">
+        <button id="ataque" @click="attacks(false)">Ataque</button>
+        <button id="especial" @click="attacks(true)">Especial</button>
+        <button id="curar" @click="healthAndHurt()">Curar</button>
+        <button id="give-up" @click="start = true">Desistir</button>
+        <button id="rules" @click="rules = !rules">Regra</button>
+      </template>
+      <button v-else id="start" @click="startGame()">Jogar</button>
+    </div>
+  </div>
+  <div class="panel" v-if="logs.length">
+    <ul>
+      <li :class="log.cls" v-for="log in logs">{{log.data}}</li>
+    </ul>
+  </div>
+
+  <div class="rules panel" v-show="rules">
+    <div id="rule-content">
+      <div id="close">
+        <span @click="rules = !rules">&times</span>
+      </div>
+      <p>
+        <strong>🎯 Objetivo:</strong> Derrote o monstro antes que ele acabe com
+        sua vida!
+      </p>
+      <p><strong>⚔ Ações:</strong></p>
+      <ul>
+        <li><strong>Ataque:</strong> Causa dano normal ao monstro.</li>
+        <li><strong>Especial:</strong> Ataque mais forte, mas limitado.</li>
+        <li><strong>Curar:</strong> Recupera parte da vida.</li>
+        <li><strong>Desistir:</strong> Encerra o jogo.</li>
+      </ul>
+      <p><strong>🏆 Vitória:</strong> Reduza a vida do monstro a 0%.</p>
+      <p><strong>❌ Derrota:</strong> Se sua vida chegar a 0%, você perde.</p>
+      <p>Boa sorte! ⚔🔥</p>
+    </div>
+  </div>
+</section>
+
+<script src="app.js"></script>

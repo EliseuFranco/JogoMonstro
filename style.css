@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0px;
+  width: 90vw;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.384);
+  border-radius: 10px;
+}
+.score {
+  flex-direction: column;
+  flex: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+.barra {
+  width: 85%;
+  height: 20px;
+  border: 1px solid black;
+}
+.life {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(38, 171, 96);
+}
+p {
+  text-transform: uppercase;
+}
+.danger {
+  background-color: red;
+}
+/*Win situation*/
+#lose {
+  font-weight: bold;
+  color: red;
+}
+#win {
+  color: green;
+  font-weight: bold;
+}
+
+/*Estilização do segundo painel com os botões*/
+.buttons {
+  padding: 20px;
+}
+button {
+  cursor: pointer;
+  margin: 3px;
+  padding: 7px;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.219);
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.502);
+}
+button:hover {
+  opacity: 0.8;
+}
+#ataque {
+  background-color: rgb(210, 57, 57);
+}
+#especial {
+  background-color: orange;
+}
+#curar {
+  background-color: rgb(38, 171, 96);
+}
+#give-up {
+  background-color: grey;
+}
+#start {
+  background-color: rgb(2, 129, 171);
+}
+#rules {
+  background-color: brown;
+}
+ul {
+  list-style: none;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+li {
+  padding: 10px;
+  width: 90%;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.352);
+  text-transform: uppercase;
+}
+.jogador {
+  background-color: rgb(0, 138, 185);
+}
+.monster {
+  background-color: lightcoral;
+}
+
+.rules {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.621);
+  width: 100%;
+  height: 100vh;
+}
+#rule-content {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  text-align: center;
+}
+span {
+  cursor: pointer;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
