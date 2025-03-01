@@ -39,6 +39,9 @@ Feito por Eliseu Samulolo
     <template v-if="player <= 0">
       <p id="lose">Você perdeu 😔</p>
     </template>
+    <template v-else-if="jogador == 0 && monster == 0">
+      <p id="win">Jogo ficou empatado 🤝</p>
+    </template>
     <template v-else> <p id="win">Você ganhou 🎉</p> </template>
   </div>
 
